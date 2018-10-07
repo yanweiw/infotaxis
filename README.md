@@ -25,17 +25,17 @@ could measure 1 when there is no door nearby or measure 0 in high probability ar
 
 The algorithm initializes prior to be uniform, corresponding to the least certainty
 and thus the highest entropy. As posterior refines after subsequent measurements,
-high probability area emerges and overall entropy decreases. Specifically, &theta;
+high probability area emerges and overall entropy decreases. Specifically, `&theta`;
 is a 25 * 25 matrix of the probability estimate of door at that cell location. Posterior
-comes from weighting prior with the likelihood of making measurement x and then normalizing it with total probability as detailed in the following update rule. ![equation](images/update.png) . Consequently, posterior evolves in the following fashion, where darker the blue lower the probability. Notice initially the agent misses the true door because the sensor is imperfect, but it is able to locate the door eventually.
+comes from weighting prior with the likelihood of making measurement x and then normalizing it with total probability as detailed in the following update rule: ![equation](images/update.png) . Consequently, posterior evolves in the following fashion, where darker the blue lower the probability. Notice initially the agent misses the true door because the sensor is imperfect, but it is able to locate the door eventually.
 
 ![belief](images/belief.gif)
 
 Fig 1. Posterior
 
-Although it appears the agent is exploring greedily&mdash;always chasing the highest probability region, it is only part of the story. The control input in the algorithm is chosen from one of the neighboring 8 cells that maximizes the expected entropy drop (we use argmin in the equation because *E* [&Delta;*S*(*u*)] is negative).
+Although it appears the agent is exploring greedily&mdash;always chasing the highest probability region, it is only part of the story. The control input in the algorithm is chosen from one of the neighboring 8 cells that maximizes the expected entropy drop (we use argmin in the equation because `*E* [&Delta;*S*(*u*)]` is negative).
 
-*E* [&Delta;*S*(*u*)] = *E* [*S*<sub>t+1</sub> - *S*<sub>t</sub>] = *p*(*u* finds door) (-*S*<sub>t</sub>) + (1 - *p*(*u* finds door)) (*S*<sub>t+1</sub> - *S*<sub>t</sub>)
+```*E* [&Delta;*S*(*u*)] = *E* [*S*<sub>t+1</sub> - *S*<sub>t</sub>] = *p*(*u* finds door) (-*S*<sub>t</sub>) + (1 - *p*(*u* finds door)) (*S*<sub>t+1</sub> - *S*<sub>t</sub>)```
 
 On the one hand, the first term says finding the door will collapse the entropy to 0, so that the neighboring cell that has the highest probability of finding the door will push the agent to go there, corresponding to exploitation. On the other hand, the second term says in the case of not finding the door calculates the entropy drop after the new measurement. Thus a neighboring cell that will reduce uncertainty the most will push the agent to go there, corresponding to exploration. Combining both, what the agent is really doing is to follow the entropy minimizing path as shown below where the agent goes to the darkest neighboring cell.
 
