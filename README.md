@@ -45,4 +45,4 @@ Fig 2. Expected Entropy Change
 
 ### Future Work
 
-One limitation of this algorithm is that the agent will stuck at the first door it finds. Thus it does not apply to multi-door localization. In another project, I use ergodic exploration to solve this problem. For code, please find my contact at my [portfolio page](yanweiw.github.io).
+One limitation of this algorithm is that the agent will stuck at the first door it finds. Thus it does not apply to multi-door localization. In another project, I use [ergodic exploration](https://github.com/yanweiw/ergodic) to solve this problem. For code, please find my contact at my [portfolio page](yanweiw.github.io). 
