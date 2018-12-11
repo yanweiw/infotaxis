@@ -4,12 +4,12 @@ This research project studies the application of two information gain methods in
 * **Infotaxis** - search guided by entropy minimization, documented in **subproject I**
 * **Ergodic exploration** - search guided by proportional coverage, documented in **subproject II**
 
-## Subproject I - Infotaxis
+## Subproject I - Infotaxis: Single Target Search
 
 Searching in an unknown environment without gradient information can be challenging
 for robotic agents. One potential controller in this scenario that balances between
 exploitation and exploration is infotaxis, a strategy that maximizes information
-gain in the search process. This repo uses entropy minimization as a proxy for
+gain in the search process. This subproject uses entropy minimization as a proxy for
 information gain to illustrate efficient localization of a target in the absence of gradient information.
 
 ### Problem statement - door localization
@@ -53,7 +53,7 @@ Fig 2. Expected Entropy Change. Darker color corresponds to larger entropy drop
 
 One limitation of this algorithm is that the agent will stuck at the first door it finds. Thus it does not apply to multi-door localization. In the following subproject, I use **ergodic exploration** to solve this problem.
 
-## Subproject II - Ergodic Exploration
+## Subproject II - Ergodic Exploration: Multi-target Coverage
 
 For an active sensing problem, I have shown **Infotaxis** is an efficient strategy to locate a target in an unknown environment. However, in cases of multiple targets or distractors, Infotaxis often gets stuck at the first target it comes across and fails to explore the entirety of space. A solution is to use ergodicity as the control signal for optimization. This subproject uses ergodic exploration to localize a target in the presence of a distractor.
 
@@ -91,4 +91,4 @@ To produce the following figures, I use iterative Linear Quadratic Regulator (iL
 
 ### Code
 
-For code, please find my contact at my [portfolio page](https://yanweiw.github.io). Cover image is an ergodic trajectory over a Gaussian distribution.
+For code, please find my contact at my [portfolio page](https://yanweiw.github.io).
