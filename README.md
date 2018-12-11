@@ -62,7 +62,7 @@ For an active sensing problem, I have shown **Infotaxis** is an efficient strate
 Fig 3 shows Infotaxis fails to visit the second door (marked by cross), because finding the first door will concentrate almost all probability to that location. An ergodic trajectory alternatively distributes exploration time proportionally to the spatial distribution of belief and consequently achieves coverage. We continue with the same task outlined in subproject I, but introduce one true door as target and another fake door as distractor (with slightly lower detection probability than true door).
 
 <!-- ![info](images/info.png) -->
-<img src="images/info.png" width="350" height="300">
+<img src="images/info.png" width="400" height="350">
 
 Fig 3. Infotaxis gets stuck at the first door detected
 
