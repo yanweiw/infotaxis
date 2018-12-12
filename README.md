@@ -53,7 +53,7 @@ Fig 2. Expected Entropy Change. Darker color corresponds to larger entropy drop
 
 One limitation of this algorithm is that the agent will stuck at the first door it finds. Thus it does not apply to multi-door localization. In the following subproject, I use **ergodic exploration** to solve this problem.
 
-## Subproject II - Ergodic Exploration: Multi-target Coverage
+## Subproject II - Ergodic Exploration: Multi-Target Coverage
 
 For an active sensing problem, I have shown **Infotaxis** is an efficient strategy to locate a target in an unknown environment. However, in cases of multiple targets or distractors, Infotaxis often gets stuck at the first target it comes across and fails to explore the entirety of space. A solution is to use ergodicity as the control signal for optimization. This subproject uses ergodic exploration to localize a target in the presence of a distractor.
 
