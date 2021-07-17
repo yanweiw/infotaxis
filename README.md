@@ -1,4 +1,4 @@
-# Information Gain Methods for Object Search
+# Active Learning for Object Search
 
 This research project studies the application of two information gain methods in a search problem:
 * **Infotaxis** - search guided by entropy minimization, documented in **subproject I**
@@ -79,7 +79,7 @@ Ergodicity here specifically refers to the ergodicity of a trajectory *X*(t) wit
 Now we have a **differentiable** distance metric, we can take the directional derivative to do gradient descent to improve the ergodicity of a trajectory. The specific algorithm is attached below. Notice a big difference between this approach and Infotaxis is that Infotaxis chooses the optimal action according to the newly updated distribution at each step, while ergodic control computes a long horizon trajectory and sticks to the same trajectory until finished even as the agent starts to make measurements and update posterior distribution. Once a trajectory is carried out, the agent computes the next optimally ergodic trajectory according to the new distribution. This process is iterated until all goal locations are visited and found.
 
 <!-- ![](images/algorithm.png) -->
-<img src="images/algorithm.png" width="600" height="250">
+<img src="images/ergodic_algorithm.png" width="600" height="250">
 
 To produce the following figures, I use iterative Linear Quadratic Regulator (iLQR) to solve for the optimal trajectory. Fig 6 - 9 consist of a sequence of ergodic trajectories. Fig 6 is the first ergodic trajectory based off a uniform prior. The trajectory tries to cover as much space as possible. Once the measurements are made, I compute the second ergodic trajectory using the posterior in Fig 7. The agent goes back to revisit the two likely door locations. Fig 8 shows the agent has pinpointed the two door locations, while Fig 9 shows the agent has found the true door. The slight difference in terms of the probability of detection between the true door and the fake door can be picked up through multiple visits. But it is imperative that the agent should visit both doors at least once, and ergodic control ensures that.
 
